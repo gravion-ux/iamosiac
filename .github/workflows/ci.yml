@@ -5,6 +5,17 @@ on:
 permissions:
   contents: read
 jobs:
+  secret-scan:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fail on committed credentials or secret-bearing files
+        run: python scripts/scan-secrets.py .
   test:
     runs-on: ubuntu-latest
     steps:
