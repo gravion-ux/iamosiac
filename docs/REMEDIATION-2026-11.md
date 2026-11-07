@@ -53,11 +53,22 @@ every toolkit project now shares one definition of what counts as a secret. A
 "soft" match, such as a dummy `api_key` inside a test fixture, is reported for
 review but does not fail the build.
 
+### Executable bit on the secret scanner
+
+The first run of the new pipeline failed on the Ubuntu runner with
+`EXE001 Shebang is present but file is not executable`. Git on Windows has no
+execute bit, so `scripts/scan-secrets.py` was published with mode `100644`
+although it carries a `#!/usr/bin/env python3` shebang, and the checkout on
+the runner produced a non-executable file. The scanner is now committed with
+mode `100755`, which is what the shebang promises, and it can also be run
+directly as `./scripts/scan-secrets.py .`.
+
 ## Verification
 
 | Check | Before | After |
 | --- | --- | --- |
 | Secret scan in CI | absent | present |
+| Secret scanner file mode | `100644` (not executable) | `100755` (executable) |
 | Tests | 9 | 39 |
 | `ruff check .` | clean | clean |
 | New rules | 1 (`CG001`) | 3 (`CG001`, `CG002`, `CG003`) |
