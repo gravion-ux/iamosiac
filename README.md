@@ -1,5 +1,9 @@
 # IAMosaic
 
+![Demo](docs/demo.png)
+
+*Demo: Reviewing an exported IAM policy offline — wildcard and privilege-escalation findings.*
+
 > Offline cloud-IAM policy review and permission-relationship visualization data.
 
 **Status:** MVP scaffold / research prototype. Not production-certified.
