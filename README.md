@@ -75,5 +75,13 @@ Offline policy analysis only. No cloud credentials, account access, API calls, o
 - [ ] Signed releases and dependency review
 - [x] Documentation and contribution guide
 
+## Sponsors
+
+Sponsorship pays for the maintenance, triage and release time behind this tool. Sponsors are
+listed here by name, and name placement starts at the $25 a month Sponsor tier or the $50
+one-time Sponsor tier.
+
+- [Sponsor on GitHub](https://github.com/sponsors/gravion-ux)
+
 ## License
 MIT. See [LICENSE](LICENSE).
